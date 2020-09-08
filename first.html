@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Editor</title>
+	<style>
+		body{
+			background-image: url(back3.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-flow: column;
+		}
+		img{
+			width: 50%;
+			filter: initial;
+		}
+		#btns{
+			margin: 10px;
+		}
+		button{
+			margin: 5px;
+			font-size: 20px;
+			background-color: purple;
+			color: white;
+			width: 120px;
+			height: 40px;
+			border-radius: 6px;
+		}
+	</style>
+</head>
+<body>
+	<input id="user" type="text" placeholder="Image URL"/>
+	<button id="add" onclick="uploadImage()">Add</button>
+	<img id="pic" src="nature.jpg"/>
+	<div id="btns">
+		<button id="original" onclick="original()">Original</button>
+		<button id="contrast" onclick="cont()">Contrast</button>
+		<button id="bright" onclick="brightness()">Brightness</button>
+		<button id="grayscale" onclick="gray()">Grayscale</button>
+		<button id="invert" onclick="inv()">Invert</button>
+		<button id="saturate" onclick="sat()">Saturate</button>
+		<button id="sepia" onclick="sep()">Sepia</button>
+	</div>
+
+	<script type="text/javascript">
+	
+		function uploadImage() {
+			let url = document.getElementById('user').value
+			document.getElementById('pic').src=url			
+		}
+
+		var image = document.getElementById('pic')
+	
+		function original() {
+			image.style.filter="initial";
+		}
+
+		var isClicked = false;
+
+
+		function cont() {
+			image.style.filter='contrast(180%)';
+		}
+
+
+		function brightness() {
+			image.style.filter="brightness(150%)";
+		}
+
+
+		function gray() {
+			image.style.filter="grayscale(100%)";
+		}
+
+
+		function inv() {
+			image.style.filter="invert(100%)";
+		}
+
+
+		function sat() {
+			image.style.filter="saturate(6)";
+		}
+
+
+		function sep() {
+			image.style.filter="sepia(100%)";
+		}
+	</script>
+</body>
+</html>
